@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // fonction pour savoir si un nombre est premier ou non
+            function nombrePremier(value) {
+                let reponse = true
+
+                if (value === 2) {
+                    reponse = true
+                } else if (value === 0 || value === 1) {
+                    reponse = false
+                } else {
+                    for (i = 3 ; i < Math.sqrt(value) ; i+=2) {
+                        if (Number.isInteger(value/i) == true) {
+                            reponse = false
+                        }
+                    }
+                }
+                console.log('Le nombre ', value, ' est-il un nombre premier ?', reponse)
+            }
+            nombrePremier(7)
+            nombrePremier(0)
+            nombrePremier(125)
+            nombrePremier(1)
+            nombrePremier(643)
+
+
+
+            
+            // 2è méthode avec modulo (%) pour la fonction sur le nombre premier
+            function nbrePremier(value) {
+                let reponse = true
+
+                if (value === 2) {
+                    reponse = true
+                } else if (value === 0 || value === 1) {
+                    reponse = false
+                } else {
+                    for (let i = 3 ; i < value ; i++) {
+                        if (value % i == 0) {
+                            reponse = false
+                        }
+                    }
+                }
+                console.log('Le nombre ', value, ' est-il un nombre premier ?', reponse)
+            }
+            nbrePremier(5)
+            nbrePremier(1)
+            nbrePremier(137)
+            nbrePremier(375)
+
+            
+
+
+
+            // méthode de Julien
+            function nbrPremier(nbr){
+                for( i = 2; i< nbr; i++){
+                    if(nbr%i === 0){
+                        return false; 
+                    }
+                }
+                return nbr !== 0;
+            }
+            function nbr2Premier(premier){
+                for( j = premier; ;j++){
+                    if(nbrPremier(j)){ 
+                        break
+                    }
+                }
+                return j;
+            }
+            console.log(nbr2Premier(9));
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

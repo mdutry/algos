@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {
+          
+            // suite de Fibonacci avec une limite à la valeur donnée
+            function suiteFibonacci (nombre) {
+                let a = 0;
+                let b = 1;
+                let c = 0;
+
+                while (a < nombre) {
+                  c = a + b;
+                  a = b;
+                  b = c;
+                }
+                console.log(c)
+            }
+            suiteFibonacci(1000000)
+            
+            
+            // suite de Fibonacci AVEC récursivité : calcul du n-ème élément
+            function suiteFibo (n) {
+              if (n == 0) {
+                return 0
+              } else if (n == 1) {
+                return 1
+              } else {
+                return suiteFibo(n-1) + suiteFibo(n-2)
+              }
+            }
+            console.log(suiteFibo(10))
+            
+            
+            // suite de Fibonacci SANS récursivité : calcul du n-ème élément
+            function suiteFibo2 (n) {
+                let a = 0;
+                let b = 1;
+                let c = 0;
+
+              for (i = 1 ; i < n ; i++) {
+                  c = a + b;
+                  a = b;
+                  b = c;
+                }
+                console.log(c)
+                return c
+            }
+            suiteFibo2(10)
+
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>
