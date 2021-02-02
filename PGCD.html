@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+
+
+            // Écrire une fonction qui donne le PGCD (plus grand dénominateur commun) de 2 nombres
+            // différente méthode : https://www.mathematiquesfaciles.com/calculer-le-pgcd-d-un-nombre-avec-cours_2_75657.htm
+            // méthode des soustractions
+            function PGCD(nbr1, nbr2) {
+                if (nbr1 === 0 || nbr2 === 0) {
+                    console.log("Entrez un entier non nul")
+                }
+                else if (nbr1 != 0 && nbr2 != 0) {
+                    let a = nbr1
+                    let b = nbr2
+                    let c = 1
+                    let resultat = 0
+
+                    while (c != 0) {
+                        if (a > b) {
+                            c = a - b
+                            a = c
+                            resultat = b
+                        }
+                        else if (b > a) {
+                            c = b - a
+                            b = c
+                            resultat = a
+                        }
+                        else if (a == b) {
+                            c = b - a
+                            resultat = a
+                        }
+
+                    }
+                console.log("Méthode soustraction : Le PGCD de ", nbr1, "et", nbr2, "est :", resultat)
+                return resultat
+                }
+            }
+            PGCD(75, 36)
+            PGCD(458, 1502)
+            PGCD(42, 63)
+
+
+
+
+
+            // méthode Euclidienne
+            function PGCDEuclidienne(nombre1, nombre2) {
+                let a = nombre1
+                let b = nombre2
+                let c = 1
+                let resultat = 0
+                while (c != 0) {
+                    if (a > b) {
+                        c = a % b
+                        resultat = b
+                        a = c
+                    }
+                    else if (b > a) {
+                        c = b % a
+                        resultat = a
+                        b = c
+                    }
+                }
+                console.log("Méthode Euclidienne : Le PGCD de ", nombre1, "et", nombre2, "est :", resultat)
+                return resultat
+            }
+            PGCDEuclidienne(758, 306)
+            PGCDEuclidienne(48, 56)
+
+            // méthode Euclidienne récursive
+            function PGCDEuclidienne2(nombre1, nombre2) {
+                if (nombre2 == 0) {
+                    return nombre1
+                }
+                else {
+                    console.log("Méthode Euclidienne en récursive", PGCDEuclidienne2(nombre2, nombre1%nombre2))
+                    return PGCDEuclidienne2(nombre2, nombre1%nombre2)
+                }
+            }
+            PGCDEuclidienne2(758, 306)
+            PGCDEuclidienne2(48, 56)
+
+
+
+
+            // Méthode des diviseurs
+            function PGCD2(number1, number2) {
+                let stock1 = [];
+                let stock2 = [];
+                let resultat = 0;
+                for (let x = 1 ; x < number1 ; x++) {
+                    resultat = number1 / x
+                    if (Number.isInteger(resultat)) stock1.push(x)
+                }
+                for (let y = 1 ; y < number2 ; y++) {
+                    resultat = number2 / y
+                    if (Number.isInteger(resultat)) stock1.push(y)
+                }
+                stock2 = stock1.filter((e, i , a) => a.indexOf(e) !== i)
+                console.log('Méthode diviseurs : Diviseurs de', number1, stock1)
+                console.log('Méthode diviseurs : Les PGCD de', number2, stock2)
+                console.log('Méthode diviseurs : Le PGCD de', number1, number2, 'est', Math.max(...stock2))
+            }
+            PGCD2(42, 63)
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>
+
+
+

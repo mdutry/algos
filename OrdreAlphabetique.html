@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // mettre dans l'ordre alphabétique les lettres d'un mot
+            function ordreAlphabetique(word) {
+                const array = word.split("")
+                const newArray = []
+
+                for (i = 0 ; i < array.length ; i++) {
+                    newArray.push(array[i])
+                }
+                newArray.sort()
+                console.log("Le mot '", word, "' dans l'ordre alphabétique :", newArray.join(''))
+                return newArray.join('')
+            }
+            
+            ordreAlphabetique('fonction')
+            ordreAlphabetique('essai avec espace')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

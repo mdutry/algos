@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // RETOURNE UNE LETTRE SUR 2 DE L'ALPHABET EN MAJUSCULE en commençant par A
+            function alphabet1Sur2EnMaj(alphabet) {
+                let i = 0
+                let newAlphabet =''
+                while (i < alphabet.length) {
+                    newAlphabet = newAlphabet + alphabet[i].toUpperCase()
+                    i += 2
+                }
+                console.log("L'alphabet une lettre sur deux en majuscule en commençant par 'a' = ", newAlphabet)
+            }
+            alphabet1Sur2EnMaj('abcdefghijklmnopkrstuvwxyz')
+            
+            
+            
+            // RETOURNE UNE LETTRE SUR 2 DE L'ALPHABET EN MAJUSCULE en commençant par B
+            function alphabet1Sur2EnMaj(alphabet) {
+                let i = 1
+                let newAlphabet =''
+                while (i < alphabet.length) {
+                    newAlphabet = newAlphabet + alphabet[i].toUpperCase()
+                    i += 2
+                }
+                console.log("L'alphabet une lettre sur deux en majuscule en commençant par 'b' = ", newAlphabet)
+            }
+            alphabet1Sur2EnMaj('abcdefghijklmnopkrstuvwxyz')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // fonction qui prend une chaîne et affiche cette chaîne après avoir remplacé chaque caractère alphabétique par le caractère alphabétique opposé (ex : a devient z, etc...)
+            function alphaMirror(string) {
+                let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+                let i = alphabet.length - 1
+                let alphabetInverse = ''
+                let newString =''
+                let alphabetMajuscule = alphabet.toUpperCase()
+
+                while (i < alphabet.length && i >= 0) {
+                    alphabetInverse += alphabet[i]
+                    i--
+                }
+                let alphabetInverseMajuscule = alphabetInverse.toUpperCase()
+
+                for (let j = 0 ; j < string.length ; j++) {
+                    let i = 0
+
+                    if (string[j] === " ") {
+                        newString += " "
+                    } else if (string[j] === string[j].toUpperCase()) {
+                        while (string[j] !== alphabetMajuscule[i] && i < alphabetMajuscule.length) {
+                            i++
+                        }
+                        newString += alphabetInverseMajuscule[i]
+                    } else {
+                        while (string[j] !== alphabet[i] && i < alphabet.length) {
+                            i++
+                        }
+                        newString += alphabetInverse[i]
+                    }
+                }
+                console.log(string, "devient : ", newString)
+            }
+            alphaMirror('Hello world')
+            alphaMirror('Bonjour les amis')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

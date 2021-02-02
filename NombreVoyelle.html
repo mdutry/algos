@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // compter le nombre de voyelles d'un mot ou d'une phrase
+            function nombreVoyelles(item) {
+                const tableau = item.split('');
+                const newTableau = [];
+
+                for (j = 0 ; j < tableau.length ; j++) {
+                    const voyelles = "aeiouyAEIOUY"
+                    for (k = 0 ; k < voyelles.length ; k++) {
+                        if (tableau[j] === voyelles.charAt(k)) {
+                            newTableau.push(tableau[j])
+                        }
+                    }
+                }
+                console.log("Le nombre de voyelles dans '", item, "' est : ", newTableau.length)
+                return newTableau.length
+            }
+
+            nombreVoyelles("bonjour")
+            nombreVoyelles('bonjour la nouvelle fonctionEEE')
+
+
+            
+
+            // 2è manière pour les voyelles
+            function voyelle(str) {
+                const voyelle_list = 'aeiouyAEIOUY'
+                let cpt = 0;
+                for (let i = 0; i < str.length; i++) {
+                    if (voyelle_list.indexOf(str[i]) !== -1) {
+                        cpt += 1;
+                    }
+                }
+                console.log('2è manière pour le comptage des voyelles :', cpt)
+                return cpt
+            }
+            voyelle("bonjour")
+            voyelle('bonjour la nouvelle fonctionEEE')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

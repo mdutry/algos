@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // écrire en paramètre 2 chaines de caractère et doit retrouner une seule chaine de caractère en faisant la copie de la plus petite chaîne dans la plus grande 
+            // EX : str1 "ABCDE" - str2 "FGH" - résultat "FGHDE"
+            function petiteStringDansLaGrande(string1, string2) {
+                let string3 = ''
+
+                if (string1.length > string2.length) {
+                    for (let i = 0 ; i < string2.length ; i++) {
+                        string3 += string2[i]
+                    }
+                    for (let j = string2.length ; j < string1.length ; j++) {
+                        string3 += string1[j]
+                    }
+                }
+                else if (string2.length > string1.length) {
+                    for (let i = 0 ; i < string1.length ; i++) {
+                        string3 += string1[i]
+                    }
+                    for (let j = string1.length ; j < string2.length ; j++) {
+                        string3 += string2[j]
+                    }
+                }
+                console.log(string3)
+            }
+            petiteStringDansLaGrande('au revoir', 'bonjour')
+            petiteStringDansLaGrande('hello', 'good bye')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

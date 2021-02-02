@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // le mot est-il un palindrome (genre 'kayak')
+            function estCeUnPalindrome(mot) {
+                const motTableau = mot.split("")
+                let resultPalindrome = null;
+
+                if (motTableau.join() === motTableau.reverse().join()) {
+                    resultPalindrome = true;
+                    console.log("Le mot '", mot, "' est-il un palindrome ?", resultPalindrome)
+                } else {
+                    resultPalindrome = false;
+                    console.log("Le mot '", mot, "' est-il un palindrome ?", resultPalindrome)
+                }
+                return resultPalindrome
+            }
+            estCeUnPalindrome('kayak')
+            estCeUnPalindrome('simple')
+
+
+
+            
+            // 2è manière pour vérifier un palindrome
+            function palindromeOrNot(mot2) {
+                let resultPalindrome2 = null;
+
+                for (m = 0 ; m < mot2.length ; m++) {
+                    if (mot2[m] == mot2[mot2.length - m - 1]) {
+                        resultPalindrome2 = true;
+                    } else {
+                    resultPalindrome2 = false;
+                    }
+                }
+                console.log("Le mot '", mot2, "' est-il un palindrome ?", resultPalindrome2)
+                return resultPalindrome2
+            }
+            palindromeOrNot('coloc')
+            palindromeOrNot('bonjour')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // fonction qui renvoie les caractères uniques d'une string - EX : str 'ABATYAT' - result 'BY'
+            function caractereUniques(string) {
+                let stringResult = ''
+                let stringDuplique = string
+
+                for (let i = 0 ; i < string.length ; i++) {
+                    let estCePareil = false
+                    let j = 0
+                    while (i > j && j < stringDuplique.length) {
+                        if (string[i] === stringDuplique[j]) {
+                            estCePareil = true
+                        }
+                        j++
+                    }
+                    j++
+                    while (i < j && j < stringDuplique.length) {
+                        if (string[i] === stringDuplique[j]) {
+                            estCePareil = true
+                        }
+                        j++
+                    }
+                    if (estCePareil === false) {
+                        stringResult = stringResult + string[i]
+                    }
+                }
+                console.log("Les lettres uniques du mot '", string, "' sont : ", stringResult)
+            }
+            caractereUniques('anticonstitutionnellement')
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

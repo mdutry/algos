@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+
+
+            // Écrire une fonction qui prend en paramètre une valeur et la puissance, et fait le calcul
+            function Power(number, puissance) {
+                let resultat = 1
+                for (let i = 1 ; i <= puissance ; i++) {
+                    resultat *= number
+                }
+                console.log(number, "avec", puissance, "en puissance donne le résultat :", resultat)
+                return resultat
+            }
+            Power(5, 4)
+            Power(19, 5)
+            Power(676, 25)
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

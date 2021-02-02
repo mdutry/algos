@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+
+
+            // Écrire une fonction itérative qui renvoie un nombre. Ce nombre est le résultat de l’opération factorielle à partir du nombre passé en paramètre.
+            function racineCarre(n) {
+                let resultat = 0
+                for (let i = 1 ; i < n ; i++) {
+                    if (i*i === n) {
+                        resultat = i
+                    }
+                }
+                console.log(n, "a-t-il une racine carrée entière ?", resultat)
+                return resultat
+            }
+            racineCarre(86)
+            racineCarre(9)
+            racineCarre(676)
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

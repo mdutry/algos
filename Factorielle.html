@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+
+
+            // Écrire une fonction itérative qui renvoie un nombre. Ce nombre est le résultat de l’opération factorielle à partir du nombre passé en paramètre.
+            function Factorielle(n) {
+                nombreFinal = 1;
+
+                if (n <= 0) {
+                    return 0
+                }
+
+                for (let i = 1 ; i <= n ; i++) {
+                    nombreFinal *= i
+                }
+                console.log("La factorielle de ",  n,  "est : ",  nombreFinal)
+            }
+            Factorielle(4)
+            Factorielle(16)
+            
+            
+            // méthode avec récursivité
+            function Facto(n) {
+                if (n == 0) {
+                    return 1
+                } else {
+                    const resultat = n * Facto(n-1)
+                    console.log(resultat)
+                    return resultat
+                }
+            }
+            Facto(4)
+            Facto(16)
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

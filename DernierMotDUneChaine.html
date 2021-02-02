@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // fonction qui affiche le dernier mot
+            function lastWord(string3) {
+                let q = string3.length - 1;
+                let tabl2 = [];
+                let r = 0;
+                let newWord2 = '';
+
+                while (string3[q] && string3[q] === ' '){
+                    q--;
+                }
+                while (string3[q] && string3[q] !== ' ') {
+                    tabl2.push(string3[q])
+                    q--;
+                }
+                tabl2.reverse()
+                while (tabl2.length > r) {
+                    newWord2 = newWord2 + tabl2[r]
+                    r++
+                }
+                console.log("Le dernier mot de la phrase", string3, "est :", newWord2)
+            }
+            lastWord("   Je suis une longue phrase avec des espaces partout     ")
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>
