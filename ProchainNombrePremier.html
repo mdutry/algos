@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercice d'algo</title>
+
+        <script>
+        
+            function clic() {  
+                
+                // fonction pour donner le prochain nombre premier si la valeur mis en paramètre ne l'est pas
+                function nextNombrePremier(value) {
+                    let reponse = true
+                    let resultat = 0
+
+                    if (value === 2) {
+                        reponse = true
+                    } else if (value === 0 || value === 1) {
+                        reponse = null
+                        console.log('Le nombre ', value, " n'est pas un nombre premier. Le nombre premier suivant est :", 2);
+                    } else {
+                        for (let i = 3 ; i < value ; i++) {
+                            if (value % i == 0) {
+                                reponse = false
+                            }
+                        }
+                    }
+
+                    if (reponse == true) {
+                        console.log('Le nombre ', value, ' est un nombre premier.');
+                        return value
+                    }
+                    else if (reponse == false) {                        
+                        resultat = value + 1
+                        for (resultat ; ; resultat++) {     // 1è boucle sur "resultat" (valeur en paramètre ++)
+                            let k = 0
+                            let j = 2
+                            while (j < resultat) {          // boucle sur "resultat" : tant que "j" est inférieur à la valeur de "resultat" en cours,  
+                                k = resultat % j            // "resultat" est divisé à "j" (2, puis 3, puis 4, ....). Le reste est mis dans une variable k créée précédemment
+                                j++
+                                if (k == 0) {               // dès que le résultat de la division est un nombre entier, la boucle "while" est arrêtée
+                                    break                   // car la valeur en "resultat" n'est pas un nombre premier
+                                }
+                            }
+                            if (k != 0) {                   // à la sortie de boucle "while", si les divisions n'ont jamais donné un nombre entier, "resultat" est donc premier
+                                break                       // la boucle "for" est arrêtée
+                            }
+                        }
+                        console.log('Le nombre ', value, " n'est pas un nombre premier. Le nombre premier suivant est :", resultat);
+                        return resultat
+                    }
+
+                }
+                nextNombrePremier(5)
+                nextNombrePremier(1)
+                nextNombrePremier(137)
+                nextNombrePremier(142)
+                nextNombrePremier(375)
+
+
+
+
+                // méthode Julien
+                function nbrPremier(nbr) {
+                    for ( i = 2; i< nbr; i++) {
+                        if (nbr%i === 0) {
+                            return false; 
+                        }
+                    }
+                    return nbr !== 0;
+                }
+                function nbr2Premier(premier) {
+                    for (j = premier;  ; j++) {
+                        if (nbrPremier(j)) { 
+                            break
+                        }
+                    }
+                    return j;
+                }
+                console.log(nbr2Premier(9));
+
+
+
+
+                // méthode Amir
+                function prime(num) {
+                    numb = parseInt(prompt("Entrez un nombre"))
+                    i = 2;
+                    for (i = 2 ; i < numb ; i++) {
+                        if (numb % i != 0) {
+                        //    console.log("aaa", numb)
+                        }
+                        else if (numb++) {
+                            console.log("bbb", numb)
+                        }
+                    }            
+                }
+
+
+
+                document.getElementById("bouton").innerHTML = "Bien joué !";
+            }
+        
+        
+        </script>
+
+    </head>
+    <body>
+    
+        <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+    </body>
+</html>

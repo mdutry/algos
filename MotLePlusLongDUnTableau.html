@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // tableau de chaine de caractère en paramètre et sortir le mot le plus long
+            function sortLeMotLePlusLong(element) {
+                let motLePlusLong = '';
+                
+                for (l = 0 ; l < element.length ; l++) {
+                    if (element[l].length > motLePlusLong.length) {
+                        motLePlusLong = element[l];
+                    }
+                }
+                console.log("Le(s) mot(s) le(s) plus long du tableau", element, "est (ou sont) : ", motLePlusLong)
+                return motLePlusLong
+            }
+            sortLeMotLePlusLong(['hello', 'bonjour', 'Guten tag', 'Buenos dias', 'Ola', 'Buongiorno'])
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

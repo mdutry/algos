@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+
+
+            // qui prend deux chaînes et affiche, sans double, les caractères qui apparaissent dans l'une ou l'autre des chaînes.
+            // EX : str:1 "zpadinton" - str:2 “paqefwtdjetyiytjneytjoeyjnejeyj” - résultat : "zpadintoqefwjy"
+            // méthode Matthieu DUTRY
+            function quiNeDoublePasLesCaracteres(str1, str2) {
+                let fusionStr = str1 + str2
+                let str3 = ""
+                str3 += fusionStr[0]
+                
+                for (let i = 0 ; i < fusionStr.length ; i++) {
+                    let egalite = false;
+                    for (let j = 0 ; j < str3.length ; j++) {
+                        if (fusionStr[i] === str3[j]) {
+                            egalite = true;
+                        }
+                    }
+                    if (egalite == false) {
+                        str3 += fusionStr[i] // str3 = str3 + fusionStr[i]
+                    }
+                }
+                console.log("Les strings '", str1, "' et' ", str2, "' deviennent :", str3)
+            }
+            quiNeDoublePasLesCaracteres('cyclopentanoper hydrophé nanthrène', 'glycosylphosphati dyléthano lamine')
+
+
+
+            // méthode Amir
+            fStr = "Avez-vous déjà vu un ver allant vers un verre en verre vert à l'envers?"
+            sStr = "Quarante carottes crues croient que croquer crée des crampes."
+            tStr = ""
+            tStr = tStr + fStr + sStr        
+            // console.log(tStr)
+            function double(tStr) {
+                forthStr = ""
+                i = 0;
+                for (i=0 ; i< tStr.length ; i++) {
+                    if (!forthStr.includes(tStr[i])) {      // si le caractère tStr[i] est différent des caractères de forthStr
+                        forthStr = forthStr + tStr[i]
+                    }
+                }
+                console.log(forthStr)
+            }
+            double(tStr)
+
+
+
+
+            // méthode Lotfi
+            function removeDuplicates(str) {
+                // Used as index in the modified string
+                let n = str.length
+                // Traverse through all characters
+                let res = ''
+                let a
+                for (a = 0; a < n; a++) {
+                // Check if str[i] is present before it
+                let j
+                for (j = a + 1; j < n; j++) {
+                    if (str[a] == str[j]) break
+                }
+            ​
+                // If not present, then add it to
+                // result.
+                if (j == n) {
+                    res = res + str[a]
+                }
+                }
+                return res
+            }
+            console.log(removeDuplicates('hello'))
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>

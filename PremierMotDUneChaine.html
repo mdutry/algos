@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice d'algo</title>
+
+    <script>
+        
+
+        function clic() {  
+            
+            // fonction qui affiche le premier mot de la chaîne
+            function firstWord(string) {
+                console.log(string.split(" ")[0])
+            }
+            firstWord("Bonjour je teste ma fonction !")
+
+
+
+
+
+            
+            // 2è manière d'afficher le premier mot
+            function firstWord2(string2) {
+                let o = 0
+                let tabl = [];
+                let p = 0;
+                let newWord = '';
+
+                while (string2[o] && string2[o] === ' '){
+                    o++;
+                }
+                while (string2[o] && string2[o] !== ' ') {
+                    tabl.push(string2[o])
+                    o++;
+                }
+                while (tabl.length > p) {
+                    newWord = newWord + tabl[p]
+                    p++
+                }
+                
+                console.log("Le premier mot de la phrase", string2, "est :", newWord)
+            }
+            firstWord2("   Je suis une longue phrase avec des espaces partout     ")
+
+
+
+            document.getElementById("bouton").innerHTML = "Bien joué !";
+        }
+
+        
+    </script>
+
+  </head>
+  <body>
+    
+    <button type="button" id="bouton" onclick="clic()">Cliquer ici !</button>
+
+  </body>
+</html>
